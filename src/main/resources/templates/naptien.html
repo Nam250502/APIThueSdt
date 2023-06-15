@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Nạp Tiền</title>
+</head>
+<body>
+<div class="container mt-4" layout:fragment="content">
+    <form th:action="@{/user/naptien}" method="post" id="myForm">
+        <div class="form-group">
+            <label for="username">Tên Tài Khoản :</label>
+            <input type="text" class="form-control" id="username" name="username"   placeholder="Nhập tên tài khoản">
+        </div>
+        <div class="form-group">
+            <label for="sotien">Số tiền :</label>
+            <input type="text" class="form-control" id="sotien" name="sotien"  placeholder="Nhập số tiền">
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Nạp">
+    </form>
+</div>
+</body>
+
+</html>

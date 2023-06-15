@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+      <div class="input-group">
+        <input type="text" id="searchInput" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button id="searchButton"  class="btn btn-primary" type="button">
+            <i class="fas fa-search fa-sm"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <br>
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Tên Dịch Vụ</th>
+      <th>Giá</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="list:${lisnetwork}">
+      <td id="serviceName" th:text="*{list.id}"></td>
+      <td id="price" th:text="*{list.name}"></td>
+      <td id="phone" th:text="*{list.price}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>

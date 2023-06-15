@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin tài khoản</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+<div layout:fragment="content">
+    <div class="container mt-4" >
+        <div class="row">
+            <div class="col-md-4">
+                <img style="height: 150px; width: 150px;" src="https://khoinguonsangtao.vn/wp-content/uploads/2022/07/avatar-gau-cute.jpg" class="img-fluid rounded-circle" alt="Avatar">
+            </div>
+            <div class="row col-md-8">
+                <div class="col-md-4 align-self-end">
+                    <div class="card border-dashed rounded">
+                        <div class="card-body">
+                            <h4 th:text="${user.name}"></h4>
+                            <p th:text="${user.email}"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 align-self-end">
+                    <div class="card border-dashed rounded">
+                        <div class="card-body">
+                            <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#D4AF37" class="bi bi-coin" viewBox="0 0 16 16">
+                                <path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z"></path>
+                                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                <path fill-rule="evenodd" d="M8 13.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path>
+                            </svg>Số Dư: <span th:text="${user.userBalance}"></span></p>
+                            <p><path d="M5.5 4a.5.5 0 0 0-.5.5V6h2.5V4h-2zm3 0v2H11V4.5a.5.5 0 0 0-.5-.5h-2zM11 7H5v2h6V7zm0 3H8.5v2h2a.5.5 0 0 0 .5-.5V10zm-3.5 2v-2H5v1.5a.5.5 0 0 0 .5.5h2zM4 4.5A1.5 1.5 0 0 1 5.5 3h5A1.5 1.5 0 0 1 12 4.5v7a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 11.5v-7z"></path>  Tổng lần thuê: <span th:text="${coutphone}"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="container mt-4">
+        <form th:action="@{/user/update}" method="post">
+            <div class="form-group">
+                <label for="name">Tài Khoản :</label>
+                <input type="text" class="form-control" id="username" name="username" th:value="${user.username}" th:readonly="true" placeholder="Nhập họ và tên">
+            </div>
+            <div class="form-group">
+                <label for="username">Tên :</label>
+                <input type="text" class="form-control" id="name" name="name"  th:value="${user.name}" placeholder="Nhập tên đăng nhập">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" th:value="${user.email}" placeholder="Nhập địa chỉ email">
+            </div>
+            <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+        </form>
+    </div>
+
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    <style>
+  .card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Đảm bảo chiều cao của card bằng chiều cao của màn hình */
+    background-color: white; /* Màu nền trắng */
+    border-radius: 20px; /* Viền bo tròn */
+    padding: 20px; /* Khoảng cách giữa nội dung và viền */
+  }
+</style>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="card-header border-0">
+    <div class="card-title">
+      </button>
+      <h2>Nạp qua Momo <img style="with:30px; height:30px;" src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" class="h-30px mx-5" alt="bank"></h2>
+    </div>
+  </div>
+  <div class="card-body align-items-center" >
+
+    <div class="align-items-center">
+      <div class="d-flex flex-column">
+        <div class="d-flex align-items-center flex-wrap justify-content-between">
+          <div class="flex-grow-1 font-weight-bold text-light-dark-50 py-2 py-lg-2 mr-5">
+            <i class="icon-md fas fa-money-check-alt" style="min-width: 16.5px"></i> <p class="fs-5 fw-bolder m-2" style="min-width: 200px;display: inline-block;">Tài khoản nhận:</p>
+            <p style="min-width: 200px;display: inline-block;"><b style="color:red;font-size: 16px;font-family: sans-serif;" ng-click="copyToClipboard(momoInfo.phone)" class="ng-binding">0389510507</b></p>
+            <button type="button" ng-click="copyToClipboard(momoInfo.phone)" class="btn btn-info btn-sm ml-2 btn-copy">Sao chép</button>
+          </div>
+        </div>
+        <div class="d-flex align-items-center flex-wrap justify-content-between">
+          <div class="flex-grow-1 font-weight-bold text-light-dark-50 py-2 py-lg-2 mr-5">
+            <i class="icon-md fas fa-user-alt" style="min-width: 16.5px"></i> <p class="fs-5 fw-bolder m-2" style="min-width: 200px; display: inline-block;">Tên tài khoản:</p>
+            <p style="min-width: 200px; display: inline-block;"><b style="color:red;font-size: 16px;" ng-click="copyToClipboard(momoInfo.name)" class="ng-binding">NGUYEN VAN NAM</b></p>
+            <button type="button" ng-click="copyToClipboard(momoInfo.name)" class="btn btn-info btn-sm ml-3 btn-copy">Sao chép</button>
+          </div>
+        </div>
+        <div class="d-flex align-items-center flex-wrap justify-content-between">
+          <div class="flex-grow-1 font-weight-bold text-light-dark-50 py-2 py-lg-2 mr-5">
+            <i class="icon-md fas fa-pencil-alt" style="min-width: 16.5px"></i> <p class="fs-5 fw-bolder m-2" style="min-width: 200px; display: inline-block;">Nội dung chuyển khoản:</p>
+            <p style="min-width: 200px; display: inline-block;"><b style="color:red;font-size: 16px;font-family: sans-serif;" ng-click="copyToClipboard(momoInfo.content)" class="ng-binding" th:text="${username}"></b></p>
+            <button type="button" ng-click="copyToClipboard(momoInfo.content)" class="btn btn-info btn-sm ml-3 btn-copy">Sao chép</button>
+          </div>
+        </div>
+        <div class="d-flex align-items-center flex-wrap justify-content-between">
+          <div class="flex-grow-1 font-weight-bold text-light-dark-50 py-2 py-lg-2 mr-5">
+            <div class="fs-6 text-red" style="color: red; font-weight: bold">
+              Chú ý: <br>- Tài khoản momo không cố định.Vui lòng kiểm tra lại tên và số tài khoản đang hiển thị trước khi thực hiện giao dịch.
+              <br>- Giao dịch thường sẽ được xử lý và cộng tiền sau 5 phút
+              <br> Xin cảm ơn
+              <br>
+            </div>
+            <small>
+              <i class="icon-md fas fa-info-circle"></i><span class="m-2">Quý khách vui lòng điền chính xác nội dung chuyển khoản là <b style="color:red;" ng-click="copyToClipboard(momoInfo.content)" class="ng-binding" th:text="${username}"></b> để được cập nhật tiền nạp nhanh chóng hơn.</span>
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

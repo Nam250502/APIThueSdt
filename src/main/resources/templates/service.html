@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout.html}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SB Admin 2 - Tables</title>
+</head>
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Tables</title>
+
+
+</head>
+
+<body>
+<section layout:fragment="content">
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+    <div class="container">
+
+            <div class="row g-8">
+                <div class="col-lg-3">
+                    <label class="d-flex align-items-center mb-2">
+                        <span>Dịch vụ</span>
+                    </label>
+                    <select id="networkSelect" class="form-control select2-select">
+                        <option th:each="network : ${lisnetwork}" th:value="${network.id}" th:text="${network.name + ' - ' + network.price}"></option>
+                    </select>
+                </div>
+
+                <div class="col-lg-2">
+                    <label class="d-flex align-items-center fs-5 fw-bold mb-2">
+                        <span style="min-height: 1.25em"></span>
+                    </label>
+                    <button type="button" class="btn btn-lg btn-primary" onclick="sendData()" >
+                        Thuê số ngay
+                    </button>
+
+            </div>
+
+            </div>
+</div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h3>Danh sách các số đang chờ tin nhắn</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+
+                            <th>Tên Dịch Vụ</th>
+                            <th>Giá</th>
+                            <th>Số Điện Thoại</th>
+                            <th>Mã OTP</th>
+                            <th>Thời Gian</th>
+                            <th>Trạng Thái</th>
+                            <th>Tin nhắn sms</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+
+                            <td id="serviceName"></td>
+                            <td id="price"></td>
+                            <td id="phone"></td>
+                            <td id="code"></td>
+                            <td id="createdTime"></td>
+                            <td id="status"></td>
+                            <td id="smsContent"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+</body>
+</html>

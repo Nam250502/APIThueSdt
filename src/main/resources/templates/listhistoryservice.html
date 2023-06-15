@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card shadow mb-4" layout:fragment="content">
+  <div class="card-header py-3">
+    <h4>Lịch sử thuê số</h4>
+  </div>
+
+
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <div class="input-group">
+            <input type="text" id="searchInput" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button id="searchButton"  class="btn btn-primary" type="button">
+                <i class="fas fa-search fa-sm"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <br>
+        <thead>
+        <tr>
+
+          <th>Tên Dịch Vụ</th>
+          <th>Giá</th>
+          <th>Số Điện Thoại</th>
+          <th>Mã OTP</th>
+          <th>Thời Gian</th>
+          <th>Tin nhắn sms</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="list:${listhistoryservice}">
+          <td id="serviceName" th:text="*{list.serviceName}"></td>
+          <td id="price" th:text="*{list.price}"></td>
+          <td id="phone" th:text="*{list.phone}"></td>
+          <td id="code" th:text="*{list.code}"></td>
+          <td id="createdTime" th:text="*{list.createdTime}"></td>
+          <td th:if="${list.isSound == 1}">
+            <audio th:src="${list.smsContent}" controls></audio>
+          </td>
+          <td th:unless="${list.isSound == 1}" id="smsContent" th:text="${list.smsContent}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
